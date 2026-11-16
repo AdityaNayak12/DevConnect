@@ -1,34 +1,32 @@
 package com.devconnect.DevConnect.model;
 
-import java.util.List;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Developer {
-
     private Long id;
-    private String firstName;
-    private String lastName;
+    private String name;
     private String email;
-    private String phone;
     private String bio;
     private String city;
-    private String linkedInUrl;
-    private String githubUrl;
     private List<String> skills;
-    private String organization;
-    private final LocalDateTime createdAt;
+    private String linkedInURL;
+    private String githubInURL;
+    private Double yearsOfExperience;
+    private LocalDateTime createdAt;
+
 
     public Developer() {
-            createdAt = LocalDateTime.now();
-        }
+        createdAt = LocalDateTime.now();
+    }
 
-    public Developer(Long id, String firstName, String lastName, String email) {
+    public Developer(Long id, String name, String email) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.name = name;
         this.email = email;
-        createdAt = LocalDateTime.now(); 
+        this.skills = new ArrayList<>();
+        createdAt = LocalDateTime.now();
     }
 
     public Long getId() {
@@ -39,20 +37,12 @@ public class Developer {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -97,26 +87,34 @@ public class Developer {
         }
     }
 
-    public String getLinkedInUrl() {
-        return linkedInUrl;
+    public String getLinkedInURL() {
+        return linkedInURL;
     }
 
-    public void setLinkedInUrl(String linkedInUrl) {
-        this.linkedInUrl = linkedInUrl;
+    public void setLinkedInURL(String linkedInURL) {
+        this.linkedInURL = linkedInURL;
     }
 
-    public String getGithubUrl() {
-        return githubUrl;
+    public String getGithubInURL() {
+        return githubInURL;
     }
 
-    public void setGithubInURL(String githubUrl) {
-        this.githubUrl = githubUrl;
+    public void setGithubInURL(String githubInURL) {
+        this.githubInURL = githubInURL;
+    }
+
+    public Double getYearsOfExperience() {
+        return yearsOfExperience;
+    }
+
+    public void setYearsOfExperience(Double yearsOfExperience) {
+        this.yearsOfExperience = yearsOfExperience;
     }
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
-    
+
     public String getCity() {
         return city;
     }
@@ -124,5 +122,4 @@ public class Developer {
     public void setCity(String city) {
         this.city = city;
     }
-
 }
