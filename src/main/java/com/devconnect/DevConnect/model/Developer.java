@@ -8,6 +8,7 @@ public class Developer {
     private Long id;
     private String name;
     private String email;
+    private String phoneNumber;
     private String bio;
     private String city;
     private List<String> skills;
@@ -21,10 +22,11 @@ public class Developer {
         createdAt = LocalDateTime.now();
     }
 
-    public Developer(Long id, String name, String email) {
+    public Developer(Long id, String name, String email, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.email = email;
+        this.phoneNumber = phoneNumber;
         this.skills = new ArrayList<>();
         createdAt = LocalDateTime.now();
     }
@@ -53,6 +55,14 @@ public class Developer {
         this.email = email;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     public String getBio() {
         return bio;
     }
@@ -67,9 +77,10 @@ public class Developer {
 
     // Is this method safe?
     public void setSkills(List<String> skills) {
-        if (skills == null) {
+        if (this.skills == null) {
             this.skills = skills;
         }
+        this.skills.addAll(skills);
     }
 
     public void addSkill(String skill) {
